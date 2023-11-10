@@ -1,0 +1,29 @@
+* Example SAS Program with Variables;
+
+* Define and initialize variables;
+data example_data;
+  input Name $ Age Height Weight;
+  datalines;
+Anil 25 175 70
+Joy 30 160 55
+Biman 28 180 75
+Alok 22 165 60
+;
+
+* Display the data;
+proc print data=example_data;
+  title 'Example Data with Variables';
+run;
+
+* Calculate the average age;
+data age_statistics;
+  set example_data;
+  total_age + Age;
+  n + 1;
+  average_age = total_age / n;
+run;
+
+* Display the calculated average age;
+proc print data=age_statistics;
+  title 'Age Statistics';
+run;
