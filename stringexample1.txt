@@ -1,0 +1,27 @@
+* Example SAS Program with String Variables;
+
+* Define and initialize string variables;
+data string_example;
+  input Name $20. Department $30.;
+  datalines;
+Amit IT
+Joy Marketing
+Biman HR
+Riju Finance
+;
+
+* Display the data with string variables;
+proc print data=string_example;
+  title 'Example Data with String Variables';
+run;
+
+* Create a new variable combining Name and Department;
+data combined_variable;
+  set string_example;
+  Full_Name = trim(Name) || ', ' || trim(Department);
+run;
+
+* Display the data with the combined variable;
+proc print data=combined_variable;
+  title 'Combined Variable Example';
+run;
