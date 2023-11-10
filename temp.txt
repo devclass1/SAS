@@ -23,7 +23,8 @@ data combined_variable;
   if missing(Department) then
     Department = 'Unknown';
   
-  Full_Name = trim(Name) || ', ' || trim(Department);
+  Full_Name = trim(Name);
+  Department = trim(Department);
 run;
 
 * Display the data with the combined variable;
